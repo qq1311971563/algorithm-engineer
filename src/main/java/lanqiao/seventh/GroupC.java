@@ -6,27 +6,64 @@ import java.util.List;
 import org.junit.Test;
 
 public class GroupC {
-	
-	
+	/**
+	 * @Description: 骰子游戏
+	 * 
+	 *               我们来玩一个游戏。 同时掷出3个普通骰子（6个面上的数字分别是1~6）。 如果其中一个骰子上的数字等于另外两个的和，你就赢了。
+	 * 
+	 *               下面的程序计算出你能获胜的精确概率（以既约分数表示）
+	 * 
+	 *               public class Main { public static int gcd(int a, int b) {
+	 *               if(b==0) return a; return gcd(b,a%b); }
+	 * 
+	 *               public static void main(String[] args) { int n = 0; for(int
+	 *               i=0; i<6; i++) for(int j=0; j<6; j++) for(int k=0; k<6; k++){
+	 *               if(________________________________) n++; //填空位置 }
+	 * 
+	 *               int m = gcd(n,6*6*6); System.out.println(n/m + "/" + 6*6*6/m);
+	 *               } }
+	 * 
+	 *               仔细阅读代码，填写划线部分缺少的内容。 注意：不要填写任何已有内容或说明性文字。
+	 * @return: 返回结果描述
+	 */
+	@Test
+	public void questionFour() {
+		int n = 0;
+		for (int i = 0; i < 6; i++)
+			for (int j = 0; j < 6; j++)
+				for (int k = 0; k < 6; k++) {
+					if ((i + j + 2 == k + 1) || (i + k + 2 == j + 1) || (j + k + 2 == i + 1))
+						n++; // 填空位置
+				}
+
+		int m = gcd(n, 6 * 6 * 6);
+		System.out.println(n / m + "/" + 6 * 6 * 6 / m);
+	}
+
+	public static int gcd(int a, int b) {
+		if (b == 0)
+			return a;
+		return gcd(b, a % b);
+	}
+
 	/**
 	 * @Description: 平方怪圈
 	 * 
 	 *               如果把一个正整数的每一位都平方后再求和，得到一个新的正整数。 对新产生的正整数再做同样的处理。
 	 *               如此一来，你会发现，不管开始取的是什么数字， 最终如果不是落入1，就是落入同一个循环圈。 请写出这个循环圈中最大的那个数字。
-	 *               请填写该最大数字。
-	 * @return：返回结果描述
+	 *               请填写该最大数字。 @return：145
 	 */
 	@Test
-	public void demo4() {
+	public void questionThree() {
 		Integer max = 0;
 		for (int i = 2; i <= 100000; i++) {
-			Integer s = GroupC.tool1(i + "");
+			Integer s = GroupC.questionThreeTool(i + "");
 			max = max > s ? max : s;
 		}
 		System.out.println("终极：" + max);
 	}
 
-	public static Integer tool1(String num) {
+	public static Integer questionThreeTool(String num) {
 		List<String> list = new ArrayList<>();
 		boolean bb = true;
 		Integer max = 0;
@@ -58,7 +95,7 @@ public class GroupC {
 		System.out.println(max);
 		return max;
 	}
-	
+
 	/**
 	 * @Description: 煤球数目
 	 * 
