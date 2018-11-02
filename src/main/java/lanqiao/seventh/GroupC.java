@@ -27,7 +27,7 @@ public class GroupC {
 	 *               请填写表示方案数目的整数。 注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。
 	 * 
 	 * 
-	 * @return: 返回结果描述
+	 * @return: 64
 	 */
 	@Test
 	public void questionSeven() {
