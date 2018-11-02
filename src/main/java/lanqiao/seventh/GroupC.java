@@ -36,10 +36,10 @@ public class GroupC {
 		}
 		for (int i = 1; i <= 9; i++) {
 			if (k6[i] == false) {
-				k6[i] = true;//回溯法
-				g6[m] = i;
-				ff(m + 1);
-				k6[i] = false;
+				k6[i] = true;// 标记已经被处理过了
+				g6[m] = i;// 保存当前层节点
+				ff(m + 1);// 进入下一层
+				k6[i] = false;// 清理标记
 			}
 		}
 	}
