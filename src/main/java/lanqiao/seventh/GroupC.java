@@ -8,6 +8,72 @@ import org.junit.Test;
 public class GroupC {
 
 	/**
+	 * @Description: 寒假作业
+	 * 
+	 *               现在小学的数学题目也不是那么好玩的。 看看这个寒假作业：
+	 * 
+	 *               □ + □ = □ □ - □ = □ □ × □ = □ □ ÷ □ = □
+	 * 
+	 *               (如果显示不出来，可以参见【图1.jpg】)
+	 * 
+	 *               每个方块代表1~13中的某一个数字，但不能重复。 比如： 6 + 7 = 13 9 - 8 = 1 3 * 4 = 12 10
+	 *               / 2 = 5
+	 * 
+	 *               以及： 7 + 6 = 13 9 - 8 = 1 3 * 4 = 12 10 / 2 = 5
+	 * 
+	 *               就算两种解法。（加法，乘法交换律后算不同的方案） 你一共找到了多少种方案？
+	 * 
+	 * 
+	 *               请填写表示方案数目的整数。 注意：你提交的应该是一个整数，不要填写任何多余的内容或说明性文字。
+	 * 
+	 * 
+	 * @return: 返回结果描述
+	 */
+	@Test
+	public void questionSeven() {
+		dfs7(0);
+		System.out.println(count);
+	}
+
+	static void dfs7(int t) {
+		// 剪枝
+		if (t == 3) {
+			if (a[0] + a[1] != a[2]) {
+				return;
+			}
+		}
+		if (t == 6) {
+			if (a[3] - a[4] != a[5]) {
+				return;
+			}
+		}
+		if (t == 9) {
+			if (a[6] * a[7] != a[8]) {
+				return;
+			}
+		}
+		if (t == 12) {
+			if (a[9] / 1.00 * a[10] * 1.0 == a[11]) {
+				count++;
+			}
+		}
+
+		// 下深
+		for (int i = 0; i < 13; i++) {
+			if (!b[i]) {
+				a[t] = i + 1;// 记录当前节点
+				b[i] = true;// 标记
+				dfs7(t + 1);// 下一层
+				b[i] = false;// 清除标记
+			}
+		}
+
+	}
+
+	static int[] a = new int[13];// 记录12个数字
+	static boolean[] b = new boolean[13];// 记录是否走过
+
+	/**
 	 * @Description: 凑算式
 	 * 
 	 *               B DEF A + --- + ------- = 10 C GHI
