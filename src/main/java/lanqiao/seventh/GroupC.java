@@ -8,6 +8,54 @@ import org.junit.Test;
 public class GroupC {
 
 	/**
+	 * @Description: 凑算式
+	 * 
+	 *               B DEF A + --- + ------- = 10 C GHI
+	 * 
+	 *               （如果显示有问题，可以参见【图1.jpg】）
+	 * 
+	 *               这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。
+	 * 
+	 *               比如： 6+8/3+952/714 就是一种解法， 5+3/1+972/486 是另一种解法。
+	 * 
+	 *               这个算式一共有多少种解法？
+	 * 
+	 *               注意：你提交应该是个整数，不要填写任何多余的内容或说明性文字。
+	 * @return: 返回结果描述
+	 */
+	@Test
+	public void questionSix() {
+		ff(1);
+		System.out.println(count);
+	}
+
+	public static void ff(int m) {
+		if (m == 10) {
+			if (check())
+				count++;
+		}
+		for (int i = 1; i <= 9; i++) {
+			if (k6[i] == false) {
+				k6[i] = true;//回溯法
+				g6[m] = i;
+				ff(m + 1);
+				k6[i] = false;
+			}
+		}
+	}
+
+	public static boolean check() {
+		double q = g6[1];
+		double w = g6[2] * 1.00 / g6[3];
+		double e = (g6[3] * 100 + g6[4] * 10 + g6[5]) * 1.00 / (g6[7] * 100 + g6[8] * 10 + g6[9]);
+		return q + w + e == 10;
+	}
+
+	static boolean k6[] = new boolean[10];// 判断这个数有没有被取过
+	static int g6[] = new int[10];// 保存9个数
+	static int count = 0;
+
+	/**
 	 * @Description: 分小组
 	 * 
 	 *               9名运动员参加比赛，需要分3组进行预赛。 有哪些分组的方案呢？
@@ -44,7 +92,10 @@ public class GroupC {
 	 * 
 	 *               注意：不要填写任何已有内容或说明性文字。
 	 * 
-	 * @return: 返回结果描述
+	 * @return: s + " " + (char) ('A' + i) + (char) ('A' + j) + (char) ('A' + k) + "
+	 *          " + remain(a)
+	 * 
+	 *          main方法选出第一个小组，f再其余的队员中选出第二组成员，remain方法返回最后三个人
 	 */
 	@Test
 	public void questionFive() {
