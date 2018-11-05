@@ -3,6 +3,41 @@ package lanqiao.seventh;
 import org.junit.Test;
 
 public class GroupB {
+
+	/**
+	 * @Description: 凑算式
+	 * @return:
+	 */
+	@Test
+	public void questionThree() {
+		dfs(0);
+		System.out.println(count);
+	}
+
+	static boolean b[] = new boolean[9];// 标记
+	static int a[] = new int[9];// 记录数字
+	static int count = 0;
+
+	private void dfs(int x) {
+		if (x == 9) {
+			double x1, x2, x3;
+			x1 = a[0];
+			x2 = (a[1] * 1.00 / a[2]);
+			x3 = ((a[3] * 100 + a[4] * 10 + a[5]) * 1.00 / (a[6] * 100 + a[7] * 10 + a[8]));
+			if (x1 + x2 + x3 == 10) {
+				count++;
+			}
+		}
+		for (int i = 0; i < 9; i++) {
+			if (!b[i]) {
+				a[x] = i + 1;// 取值
+				b[i] = true;// 标记
+				dfs(x + 1);// 进入下一层
+				b[i] = false;// 取消标记
+			}
+		}
+	}
+
 	/**
 	 * @Description: 生日蜡烛
 	 * 
