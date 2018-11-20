@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+/algorithm-engineer.iml
+.gitignore
+.idea/
+algorithm-engineer.iml
+/target/
+src/test/resources/
+target/
