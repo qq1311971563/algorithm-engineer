@@ -4,6 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Top1 {
+    /**
+     * 最长回文子串
+     */
+    public String longestPalindrome(String s) {
+        int i = 0;
+        return "";
+    }
+
 
     /**
      * 9 回文数
